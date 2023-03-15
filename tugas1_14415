@@ -1,0 +1,85 @@
+//judul         : Program Fungsi
+//kamus         : -
+//deskripsi
+
+#include <iostream>
+using namespace std;
+
+//fungsi penjumlahan
+int tambah(int a, int b)
+{
+    return a + b;
+}
+
+//fungsi pengurangan
+int kurang(int a, int b)
+{
+    return a - b;
+}
+
+//fungsi penjumlahan total array
+float hitungJumlah(float arr[], int n) {
+   float total = 0;
+
+   for(int i = 0; i < n; i++) {
+      total += arr[i];
+   }
+
+   return total;
+}
+//fungsi untuk menghitung rata-rata
+float hitungRataRata(float arr[], int x) {
+   float total = hitungJumlah(arr, x);
+
+   return total / x;
+}
+
+int main()
+{
+    int a,b,pilihan;
+    cout << "Masukkan angka pertama    : ";
+    cin >> a;
+    cout << "Masukkan angka kedua      : ";
+    cin >> b;
+    cout<<endl;
+    cout<<"Pilih"<<endl;
+    cout << "1. Penjumlahan"<<endl;
+    cout << "2. Pengurangan"<<endl;
+    cout << "3. Jumlah Array & Rata-Rata"<<endl;
+    cin>>pilihan;
+    switch(pilihan)
+    {
+    case 1 :
+        {
+            cout << "Hasil penjumlahan         : " << tambah(a, b) <<endl;
+            break;
+        }
+    case 2 :
+        {
+            cout << "Hasil pengurangan         : " << kurang(a, b) << endl;
+            break;
+        }
+    case 3 :
+        {
+            int x;
+            float rata_rata;
+            cout << "Masukkan jumlah elemen dalam array: ";
+            cin >> x;
+            float arr[x];
+            for(int i = 0; i < x; i++)
+                {
+                    cout << "Masukkan elemen ke-" << i+1 << ": ";
+                    cin >> arr[i];
+                }
+            rata_rata = hitungRataRata(arr, x);
+            cout << "Jumlah nilai dalam array: " << hitungJumlah(arr, x) << endl;
+            cout << "Rata-rata nilai dalam array: " << rata_rata <<endl;
+            break;
+        }
+    default :
+        {
+            cout<<"not found!!!";
+            break;
+        }
+    }
+}
